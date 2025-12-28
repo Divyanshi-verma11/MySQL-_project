@@ -1,0 +1,16 @@
+-- 28. Identify products contributing to top 80% of total revenue.
+
+SELECT
+	*
+FROM
+	(SELECT SUM(price), 
+	SUM(SUM(price)) OVER(), 
+	SUM(SUM(price)) 
+	OVER(ORDER BY SUM(price) DESC)/ SUM(SUM(price)) 
+	OVER() AS 
+	cummulative_ratio
+FROM 
+	project.olist_order_items_dataset 
+	GROUP BY product_id) AS n 
+WHERE
+	cummulative_ratio <= 0.8;
