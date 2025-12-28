@@ -1,0 +1,10 @@
+-- 3. Show all products (product id, category, price).
+
+SELECT 
+    t1.product_id, t2.product_category_name, t1.price
+FROM
+    project.olist_order_items_dataset t1
+        JOIN
+    project.olist_products_dataset t2
+WHERE
+    t1.product_id = t2.product_id;
