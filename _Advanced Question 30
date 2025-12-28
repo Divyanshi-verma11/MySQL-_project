@@ -1,0 +1,14 @@
+-- 30. Create a monthly sales summary view.
+
+CREATE VIEW monthly_sales_summary_view AS
+    (SELECT 
+        COUNT(DISTINCT (t1.order_id)) AS total_order,
+        COUNT(DISTINCT (customer_id)) AS total_customer,
+        SUM(payment_value) AS total_sales,
+        AVG(payment_value) AS avg_sales
+    FROM
+        project.olist_orders_dataset t1
+            JOIN
+        olist_order_payments_dataset t2
+    WHERE
+        t1.order_id = t2.order_id);
