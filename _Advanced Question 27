@@ -1,0 +1,17 @@
+-- 27. Calculate average number of days between consecutive orders.
+
+SELECT 
+	order_id, order_purchase_timestamp, 
+    AVG(diff_days) OVER() 
+    AS 
+		average_days 
+FROM
+	(SELECT 
+		order_id, order_purchase_timestamp, 
+		ABS(DATEDIFF(lag(order_purchase_timestamp) OVER(), order_purchase_timestamp)) 
+    AS 
+		diff_days
+FROM 
+	project.olist_orders_dataset 
+    ORDER BY 
+		order_purchase_timestamp) AS n;
