@@ -1,0 +1,12 @@
+-- 24. Find first and last order date for each customer.
+
+SELECT customer_id, 
+	FIRST_VALUE(order_purchase_timestamp) OVER(PARTITION BY customer_id) 
+    AS
+		first_order_date, 
+	LAST_VALUE(order_purchase_timestamp) 
+	OVER(PARTITION BY customer_id ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) 
+    AS
+		last_order_date
+FROM
+	project.olist_orders_dataset;
