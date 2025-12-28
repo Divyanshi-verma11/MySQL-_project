@@ -1,0 +1,6 @@
+-- 5. Find the total number of orders.
+
+SELECT 
+    COUNT(*) AS total_orders
+FROM
+    project.olist_orders_dataset
