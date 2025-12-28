@@ -1,0 +1,9 @@
+-- 4. Find all orders placed in a particular month (for example, “2017-09”).
+
+SELECT 
+    *
+FROM
+    project.olist_orders_dataset
+WHERE
+    EXTRACT(MONTH FROM order_purchase_timestamp) = 09
+        AND EXTRACT(YEAR FROM order_purchase_timestamp) = 2017
