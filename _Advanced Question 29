@@ -1,0 +1,11 @@
+-- 29. Identify suspicious orders with unusually high number of voucher payments.
+
+SELECT 
+    order_id, payment_type, COUNT(*) AS number
+FROM
+    project.olist_order_payments_dataset
+WHERE
+    payment_type = 'voucher'
+GROUP BY order_id
+HAVING COUNT(*) > 1
+ORDER BY number DESC;
