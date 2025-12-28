@@ -1,0 +1,7 @@
+-- 8. Find total number of items in each order.
+
+SELECT 
+    order_id, COUNT(*) AS total_num_orders
+FROM
+    project.olist_order_items_dataset
+GROUP BY order_id;
