@@ -1,0 +1,6 @@
+-- 7.Show customer ID, order ID, and order purchase date.
+
+SELECT 
+    customer_id, order_id, order_purchase_timestamp
+FROM
+    project.olist_orders_dataset
