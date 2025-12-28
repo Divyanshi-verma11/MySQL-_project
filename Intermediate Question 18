@@ -1,0 +1,9 @@
+-- 18. Show orders with their payment type and payment value.
+
+SELECT DISTINCT
+    (order_id),
+    payment_type,
+    SUM(payment_value) AS total_payment
+FROM
+    project.olist_order_payments_dataset
+GROUP BY order_id, payment_type;
