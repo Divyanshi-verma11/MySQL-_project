@@ -1,0 +1,11 @@
+-- 16. Find orders whose total payment value is above average order value.
+
+SELECT 
+    order_id, SUM(payment_value)
+FROM
+    project.olist_order_payments_dataset
+GROUP BY order_id
+HAVING SUM(payment_value) > (SELECT 
+        AVG(payment_value)
+    FROM
+        project.olist_order_payments_dataset);
