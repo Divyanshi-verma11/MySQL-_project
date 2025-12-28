@@ -1,0 +1,7 @@
+-- 6. Show number of customers per city.
+
+SELECT 
+    customer_city, COUNT(*) AS customer
+FROM
+    project.olist_customers_dataset
+GROUP BY customer_city;
