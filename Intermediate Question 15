@@ -1,0 +1,11 @@
+-- 15. Find products that were never ordered.
+
+SELECT 
+    count(*)
+FROM
+    olist_products_dataset
+WHERE
+    product_id NOT IN (SELECT DISTINCT
+            (product_id)
+        FROM
+            project.olist_order_items_dataset);
