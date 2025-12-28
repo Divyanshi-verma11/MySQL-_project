@@ -1,0 +1,8 @@
+-- 9. Find all order items with price greater than 100.
+
+SELECT 
+    order_id, payment_value
+FROM
+    project.olist_order_payments_dataset
+WHERE
+    payment_value > 100;  
