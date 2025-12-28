@@ -1,0 +1,9 @@
+-- 19. Find total number of orders from each customer city.
+
+SELECT 
+    t1.customer_city, COUNT(t2.order_id) AS numbers
+FROM
+    olist_customers_dataset t1
+        JOIN
+    olist_orders_dataset t2 ON t1.customer_id = t2.customer_id
+GROUP BY customer_city;
