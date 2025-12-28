@@ -1,0 +1,9 @@
+-- 13. Find top 5 best-selling products by number of orders.
+
+SELECT 
+    t1.product_id, COUNT(*) AS top_selling
+FROM
+    olist_order_items_dataset t1
+GROUP BY order_id , product_id
+ORDER BY top_selling DESC
+LIMIT 5;
