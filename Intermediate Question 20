@@ -1,0 +1,8 @@
+-- 20. Find repeat customers (customers with only one order).
+
+SELECT 
+    customer_id, COUNT(*) AS orders
+FROM
+    project.olist_orders_dataset
+GROUP BY customer_id
+HAVING COUNT(*) = 1;
