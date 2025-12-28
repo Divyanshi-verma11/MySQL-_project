@@ -1,0 +1,6 @@
+-- 10. Find customers who placed at least one order.
+
+SELECT DISTINCT
+    (customer_id)
+FROM
+    project.olist_orders_dataset t1;
