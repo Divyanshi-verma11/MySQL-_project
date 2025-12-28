@@ -1,0 +1,21 @@
+-- 25. Find customers whose order count is above average.
+
+WITH 
+	av 
+AS (SELECT 
+	AVG(a) AS average 
+FROM (
+	SELECT 
+		order_id, COUNT(*) AS a 
+	FROM 
+		project.olist_order_items_dataset 
+	GROUP BY 
+		order_id) AS n)
+	SELECT 
+		order_id,count(*) 
+	FROM 
+		project.olist_order_items_dataset 
+	GROUP BY 
+		order_id 
+	HAVING 
+		count(*) > (SELECT * FROM av);
